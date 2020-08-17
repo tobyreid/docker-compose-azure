@@ -2,6 +2,8 @@
 
 Demonstrates a terraform deployed docker-compose configured azure web app.
 
+user/password is foo/bar
+
 If you fork this repo, you will need to set the following secrets used by the terraform script.
 
 - AZURE_CLIENT_ID
