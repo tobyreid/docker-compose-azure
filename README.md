@@ -15,6 +15,8 @@ These credentials can be created by running:
 
 `az ad sp create-for-rbac --name "docker-compose-proxy-sp" --role contributor --scopes /subscriptions/{your_subscription_here} --sdk-auth`
 
+*** important - it seems to take a few minutes before the service principal becomes fully active for use by terraform (you will receive HTTP 403 errors)
+
 You will also need to set the following variables for the terraform backend
 
 - TF_ACCESS_KEY
