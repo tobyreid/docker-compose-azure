@@ -32,3 +32,14 @@ variable "location-suffix" {
     australiasoutheast = "ase"
   }
 }
+
+
+variable "app-container-tag" {
+  description = "the target front end container version"
+  default = "latest"
+}
+
+variable "api-container-tag" {
+  description = "the target back end container version"
+  default = "latest"
+}
