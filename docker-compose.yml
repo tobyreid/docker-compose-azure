@@ -2,12 +2,10 @@ version: "3"
 
 services:
   web:
-    image: nginx
-    volumes:
-        - ./src:/usr/share/nginx/html
+    image: nginxdemos/hello
   auth:
     image: beevelop/nginx-basic-auth
     ports:
-      - 80:80
+      - 8000:80
     links:
       - web
