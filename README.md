@@ -25,7 +25,7 @@ You will also need to set the following variables for the terraform backend
 These should be self explanatory - TF_KEY is the path/blob used to save the back end file
 
 If you want to terraform locally, create a `secrets.tfvars` file in the `terraform` folder and set the following:
-
+```
 tenant_id="{your value}"
 subscription_id="{your value}"
 client_id="{your value}"
@@ -35,5 +35,5 @@ storage_account_name="{your value}"
 container_name="{your value}"
 access_key="{your value}"
 key="{your value}"
-
-then run init.bat
+```
+then run `init.bat`
