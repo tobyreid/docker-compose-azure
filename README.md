@@ -1,6 +1,6 @@
 # docker-compose-proxy
 
-Demonstrates a terraform deployed docker-compose configured azure web app.
+Demonstrates a docker-compose multi-container application with basic authentication, deployed via terraform to Azure.
 
 user/password is foo/bar
 
