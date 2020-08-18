@@ -59,6 +59,14 @@ resource "azurerm_app_service_plan" "dcmp" {
   tags = local.tags
 }
 
+resource "azurerm_container_registry" "dcmp" {
+  name                     = "dcmpacr"
+  resource_group_name      = azurerm_resource_group.dcmp.name
+  location                 = azurerm_resource_group.dcmp.location
+  sku                      = "Basic"
+  admin_enabled            = true
+}
+
 resource "azurerm_app_service" "dcmp-compose" {
   name                = "${local.product}-app-${var.environment}-${lookup(var.location-suffix, var.location, "err")}"
   location            = azurerm_resource_group.dcmp.location
@@ -75,6 +83,9 @@ resource "azurerm_app_service" "dcmp-compose" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY"  = azurerm_application_insights.dcmp.instrumentation_key
+    "DOCKER_REGISTRY_SERVER_PASSWORD" = azurerm_container_registry.dcmp.admin_password
+    "DOCKER_REGISTRY_SERVER_URL"      = "https://${azurerm_container_registry.dcmp.login_server}"
+    "DOCKER_REGISTRY_SERVER_USERNAME" = azurerm_container_registry.dcmp.admin_username
   }
   tags = local.tags
 }
