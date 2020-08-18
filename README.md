@@ -27,7 +27,7 @@ You will also need to set the following variables for the terraform backend
 
 - TF_ACCESS_KEY
 - TF_STORAGE_ACCOUNT_NAME
-- TF_CONTAINER_NAME
+- TF_CONTAINER_NAME 
 
 If you want to terraform locally, create a `secrets.tfvars` file in the `terraform` folder and set the following:
 
