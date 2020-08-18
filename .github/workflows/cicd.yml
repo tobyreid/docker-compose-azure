@@ -21,7 +21,7 @@ jobs:
           registry: ${{ secrets.DOCKER_REGISTRY }}
           path: app
           tags: latest, ${{ github.run_id }}
-          push: ${{ startsWith(github.ref, 'refs/heads/master') && github.event_name == 'push'}}
+          # push: ${{ startsWith(github.ref, 'refs/heads/master') && github.event_name == 'push'}}
   api:
     runs-on: ubuntu-latest
     steps:
