@@ -52,9 +52,9 @@ jobs:
         run: terraform validate
         working-directory: terraform
       - name: Terraform Plan
-        run: terraform plan -var "api-container-tag=${{ github.run_id }}" -var "app-container-tag=${{ github.run_id }}" -var "subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}" -var "client_id=${{ secrets.AZURE_CLIENT_ID }}" -var "client_secret=${{ secrets.AZURE_CLIENT_SECRET }}" -var "tenant_id=${{ secrets.AZURE_TENANT_ID }}" -var "app-hello-tag=app-hello:${{ github.run_id }}"
+        run: terraform plan -var "app-hello-tag=app-hello:${{ github.run_id }}" -var "subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}" -var "client_id=${{ secrets.AZURE_CLIENT_ID }}" -var "client_secret=${{ secrets.AZURE_CLIENT_SECRET }}" -var "tenant_id=${{ secrets.AZURE_TENANT_ID }}"
         working-directory: terraform
       - name: Terraform Apply
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        run: terraform apply -var "api-container-tag=${{ github.run_id }}" -var "app-container-tag=${{ github.run_id }}" -var "subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}" -var "client_id=${{ secrets.AZURE_CLIENT_ID }}" -var "client_secret=${{ secrets.AZURE_CLIENT_SECRET }}" -var "tenant_id=${{ secrets.AZURE_TENANT_ID }}" -var "app-hello-tag=app-hello:${{ github.run_id }}" --auto-approve
+        run: terraform apply -var "app-hello-tag=app-hello:${{ github.run_id }}" -var "subscription_id=${{ secrets.AZURE_SUBSCRIPTION_ID }}" -var "client_id=${{ secrets.AZURE_CLIENT_ID }}" -var "client_secret=${{ secrets.AZURE_CLIENT_SECRET }}" -var "tenant_id=${{ secrets.AZURE_TENANT_ID }}" --auto-approve
         working-directory: terraform
