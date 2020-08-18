@@ -13,7 +13,7 @@ variable "tenant_id" {
 
 variable "environment" {
   description = "The deployment environment"
-  default     = "production"
+  default     = "master"
 }
 
 variable "location" {

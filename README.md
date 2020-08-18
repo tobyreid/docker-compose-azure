@@ -42,10 +42,10 @@ client_secret="{your value}"
 storage_account_name="{your value}"
 container_name="{your value}"
 access_key="{your value}"
-key="{your value}"
+key="master.tfstate"
 
 acr_domain = "contoso.azurecr.io"
 acr_admin_username = "contoso"
 acr_admin_password = "{your value}"
 ```
-then run `init.bat`
+then run `apply.bat`
