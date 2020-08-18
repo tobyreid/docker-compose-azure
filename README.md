@@ -28,11 +28,9 @@ You will also need to set the following variables for the terraform backend
 - TF_ACCESS_KEY
 - TF_STORAGE_ACCOUNT_NAME
 - TF_CONTAINER_NAME
-- TF_KEY
-
-These should be self explanatory - TF_KEY is the path/blob used to save the back end file
 
 If you want to terraform locally, create a `secrets.tfvars` file in the `terraform` folder and set the following:
+
 ```
 tenant_id="{your value}"
 subscription_id="{your value}"
@@ -42,6 +40,8 @@ client_secret="{your value}"
 storage_account_name="{your value}"
 container_name="{your value}"
 access_key="{your value}"
+
+# or whatever environment/branch you're on
 key="master.tfstate"
 
 acr_domain = "contoso.azurecr.io"

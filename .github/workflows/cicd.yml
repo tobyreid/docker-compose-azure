@@ -46,7 +46,7 @@ jobs:
         with:
           terraform_version: 0.12.28
       - name: Terraform Init
-        run: terraform init -backend-config="container_name=${{ secrets.TF_CONTAINER_NAME }}" -backend-config="storage_account_name=${{ secrets.TF_STORAGE_ACCOUNT_NAME }}" -backend-config="access_key=${{ secrets.TF_ACCESS_KEY }}" -backend-config="key=${GITHUB_REF##*/}"
+        run: terraform init -backend-config="container_name=${{ secrets.TF_CONTAINER_NAME }}" -backend-config="storage_account_name=${{ secrets.TF_STORAGE_ACCOUNT_NAME }}" -backend-config="access_key=${{ secrets.TF_ACCESS_KEY }}" -backend-config="key=${GITHUB_REF##*/}.tfstate"
         working-directory: terraform
       - name: Terraform Validate
         run: terraform validate
