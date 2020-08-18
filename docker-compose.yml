@@ -2,7 +2,10 @@ version: "3"
 
 services:
   web:
-    image: dcmpacr.azurecr.io/app-hello
+    build:
+      context: app
+      dockerfile: Dockerfile
+    image: dcmpacr.azurecr.io/app-hello:latest
   auth:
     image: beevelop/nginx-basic-auth
     ports:

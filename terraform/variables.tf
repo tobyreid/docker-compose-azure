@@ -34,12 +34,12 @@ variable "location-suffix" {
 }
 
 
-variable "app-container-tag" {
+variable "app-hello-tag" {
   description = "the target front end container version"
-  default = "latest"
+  default = "app-hello:latest"
 }
 
-variable "api-container-tag" {
+variable "api-hello-tag" {
   description = "the target back end container version"
   default = "latest"
 }
