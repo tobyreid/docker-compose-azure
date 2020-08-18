@@ -1,4 +1,4 @@
-name: Docker Compose CI/CD
+name: Terraform Destroy
 
 on:
   delete:

@@ -1,4 +1,4 @@
-name: Docker Compose CI/CD
+name: CI / Terraform CD
 
 on:
   push:
