@@ -17,7 +17,11 @@ These credentials can be created by running:
 
 *important* - it seems to take a few minutes before the service principal becomes fully active for use by terraform (you will receive HTTP 403 errors)
 
-*important* - there is a bit of a catch22 with the Azure Container Registry - I have specified it in the terraform script, that occurs after the build and push step.  This means the build and push step will fail, leading to the terraform step not being executed.  The best thing here is to run the init.bat first locally with your secrets.tfvars, then let github actions take over
+You will need an ACR to push images to, these secrets must be set:
+
+- DOCKER_USERNAME - e.g. contoso
+- DOCKER_PASSWORD - e.g. adminpassword
+- DOCKER_REGISTRY - e.g. contoso.azurecr.io
 
 You will also need to set the following variables for the terraform backend
 
@@ -39,5 +43,9 @@ storage_account_name="{your value}"
 container_name="{your value}"
 access_key="{your value}"
 key="{your value}"
+
+acr_domain = "contoso.azurecr.io"
+acr_admin_username = "contoso"
+acr_admin_password = "{your value}"
 ```
 then run `init.bat`
