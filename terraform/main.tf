@@ -67,7 +67,7 @@ resource "azurerm_app_service" "dcmp-compose" {
 
   site_config {
     always_on        = true
-    linux_fx_version = "COMPOSE|${base64encode(replace(file("../docker-compose.yml"), "$${app_hello_tag}", var.app_hello_tag))}"
+    linux_fx_version = "COMPOSE|${base64encode(replace(file("../docker-compose.yml"), "$${app-hello-tag}", var.app-hello-tag))}"
     scm_type         = "VSTSRM"
   }
 

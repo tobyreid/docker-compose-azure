@@ -5,7 +5,7 @@ services:
     build:
       context: app
       dockerfile: Dockerfile
-    image: ${app_hello_tag}
+    image: ${app-hello-tag}
   auth:
     image: beevelop/nginx-basic-auth
     ports:

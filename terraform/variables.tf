@@ -34,7 +34,7 @@ variable "location-suffix" {
 }
 
 
-variable "app_hello_tag" {
+variable "app-hello-tag" {
   description = "the target front end container version"
 }
 

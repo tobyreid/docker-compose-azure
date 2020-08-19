@@ -2,7 +2,9 @@
 
 Demonstrates a docker-compose multi-container application with basic authentication, deployed via terraform to Azure.
 
-user/password is foo/bar
+user/password is in cloud is *admin/admin*, locally is *foo/bar*
+
+If you want to set a new password in appsettings, use a service such as https://hostingcanada.org/htpasswd-generator and save a new app setting in main.tf using 'apache specific salt md5'
 
 If you fork this repo, you will need to set the following secrets used by the terraform script.
 
@@ -51,6 +53,6 @@ key="master.tfstate"
 acr_domain = "contoso.azurecr.io"
 acr_admin_username = "contoso"
 acr_admin_password = "{your value}"
-app_hello_tag = "{your_acr_image_and_tag}"
+app-hello-tag = "{your_acr_image_and_tag}"
 ```
 then run `apply.bat`
