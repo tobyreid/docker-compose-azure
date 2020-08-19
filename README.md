@@ -78,6 +78,6 @@ then run `apply.bat`
 If you want to set a new password in appsettings, use a service such as https://hostingcanada.org/htpasswd-generator and save a new app setting in main.tf using 'apache specific salt md5'
 
 
-## pull requests
+## Pull requests
 
 All pull requests will trigger a full build and deployment using a slugified version of the pull request number
