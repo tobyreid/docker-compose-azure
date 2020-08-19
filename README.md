@@ -56,3 +56,4 @@ acr_admin_password = "{your value}"
 app-hello-tag = "{your_acr_image_and_tag}"
 ```
 then run `apply.bat`
+
