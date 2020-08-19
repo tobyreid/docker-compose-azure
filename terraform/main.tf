@@ -78,6 +78,7 @@ resource "azurerm_app_service" "dcmp-compose" {
     "DOCKER_REGISTRY_SERVER_URL"      = "https://${var.acr_domain}"
     "DOCKER_REGISTRY_SERVER_USERNAME" = var.acr_admin_username
     "DOCKER_REGISTRY_SERVER_PASSWORD" = var.acr_admin_password
+    "HTPASSWD"                        = "admin:$apr1$hxwnkrt3$DfpCSg0fFQ.b1bCkWAqpx1"
   }
   tags = local.tags
 }
