@@ -50,3 +50,5 @@ acr_admin_password = "{your value}"
 app-hello-tag = "{your_acr_image_and_tag}"
 ```
 then run `apply.bat`
+
+You can change the password supplied to the container in azure by using a new Apache MD5 hash here:https://hostingcanada.org/htpasswd-generator/
