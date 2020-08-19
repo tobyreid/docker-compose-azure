@@ -22,22 +22,20 @@ terraform {
 
 data "azurerm_client_config" "current" {}
 locals {
-  managed = "terraform"
-  product = "docker-compose-proxy"
   tags = {
     managed = "terraform"
-    product = "docker-compose-proxy"
+    product = var.product_name
   }
 }
 
 resource "azurerm_resource_group" "dcmp" {
-  name     = "${local.product}-${var.environment}-rg"
+  name     = "${var.product_name}-${var.environment}-rg"
   location = var.location
   tags     = local.tags
 }
 
 resource "azurerm_application_insights" "dcmp" {
-  name                = "${local.product}-${var.environment}-ai"
+  name                = "${var.product_name}-${var.environment}-ai"
   location            = azurerm_resource_group.dcmp.location
   resource_group_name = azurerm_resource_group.dcmp.name
   retention_in_days   = 90
@@ -46,7 +44,7 @@ resource "azurerm_application_insights" "dcmp" {
 }
 
 resource "azurerm_app_service_plan" "dcmp" {
-  name                = "${local.product}-${var.environment}-${lookup(var.location-suffix, var.location, "err")}-asp"
+  name                = "${var.product_name}-${var.environment}-${lookup(var.location-suffix, var.location, "err")}-asp"
   location            = azurerm_resource_group.dcmp.location
   resource_group_name = azurerm_resource_group.dcmp.name
   kind                = "Linux"
@@ -60,7 +58,7 @@ resource "azurerm_app_service_plan" "dcmp" {
 }
 
 resource "azurerm_app_service" "dcmp-compose" {
-  name                = "${local.product}-app-${var.environment}-${lookup(var.location-suffix, var.location, "err")}"
+  name                = "${var.product_name}-app-${var.environment}-${lookup(var.location-suffix, var.location, "err")}"
   location            = azurerm_resource_group.dcmp.location
   resource_group_name = azurerm_resource_group.dcmp.name
   app_service_plan_id = azurerm_app_service_plan.dcmp.id
@@ -69,7 +67,7 @@ resource "azurerm_app_service" "dcmp-compose" {
 
   site_config {
     always_on        = true
-    linux_fx_version = "COMPOSE|${base64encode(replace(file("../docker-compose.yml"), "$${app-hello-tag}", var.app-hello-tag))}"
+    linux_fx_version = "COMPOSE|${base64encode(replace(file("../docker-compose.yml"), "$${app_hello_tag}", var.app_hello_tag))}"
     scm_type         = "VSTSRM"
   }
 

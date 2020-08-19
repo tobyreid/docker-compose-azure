@@ -29,6 +29,10 @@ You will also need to set the following variables for the terraform backend
 - TF_STORAGE_ACCOUNT_NAME
 - TF_CONTAINER_NAME
 
+You will then need to give a unique product name:
+
+- PRODUCT_NAME
+
 If you want to terraform locally, create a `secrets.tfvars` file in the `terraform` folder and set the following:
 
 ```
@@ -47,6 +51,6 @@ key="master.tfstate"
 acr_domain = "contoso.azurecr.io"
 acr_admin_username = "contoso"
 acr_admin_password = "{your value}"
-app-hello-tag = "{your_acr_image_and_tag}"
+app_hello_tag = "{your_acr_image_and_tag}"
 ```
 then run `apply.bat`

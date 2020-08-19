@@ -34,13 +34,8 @@ variable "location-suffix" {
 }
 
 
-variable "app-hello-tag" {
+variable "app_hello_tag" {
   description = "the target front end container version"
-}
-
-variable "api-hello-tag" {
-  description = "the target back end container version"
-  default     = "latest"
 }
 
 variable "acr_domain" {
@@ -49,4 +44,8 @@ variable "acr_domain" {
 variable "acr_admin_username" {
 }
 variable "acr_admin_password" {
+}
+
+variable "product_name" {
+  description = "The product prefix used to construct the azure resources"
 }
