@@ -32,7 +32,7 @@ Make a note of the output - *important* - it seems to take a few minutes before 
 You will need to set the following github secrets:
 
 Secret | Description
-----------------------------
+-------|--------------------
 AZURE_CLIENT_ID | Use output of service principal
 AZURE_CLIENT_SECRET | Use output of service principal
 AZURE_SUBSCRIPTION_ID | Use output of service principal
