@@ -24,7 +24,7 @@ data "azurerm_client_config" "current" {}
 locals {
   tags = {
     managed = "terraform"
-    product = var.product_name
+  product = var.product_name
   }
 }
 
