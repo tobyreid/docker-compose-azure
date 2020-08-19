@@ -1,5 +1,3 @@
-# docker-compose-azure
-
 ## Summary
 This repository demonstrates development and deployment of a multi container application in Microsoft Azure via Terraform where the containers come from both DockerHub and Azure Container Registry.
 
